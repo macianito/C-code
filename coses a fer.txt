@@ -1,1 +1,2 @@
 Fer cercador d'arxius
+Fer funcions strings
