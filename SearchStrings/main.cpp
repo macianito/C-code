@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <dirent.h> // http://pubs.opengroup.org/onlinepubs/007908775/xsh/dirent.h.html
-#include <sys/types.h>
-#include <sys/stat.h>
+// #include <sys/types.h>
+// #include <sys/stat.h>
 
 #include "./filesystem.h"
 
