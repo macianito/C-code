@@ -30,6 +30,9 @@ int main(int argc, char** argv) {
     char path[] = "C:/Intel/test.txt";
     printf("contents: %s.\n", file_get_contents(path));
     
+    //char path[] = "C:/Intel/test.txt";
+    //printf("size: %d.\n", filesize(path));
+    
     return 0;
 }
 

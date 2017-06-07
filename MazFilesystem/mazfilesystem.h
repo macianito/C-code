@@ -23,6 +23,7 @@ bool is_dir(const char* path);
 void scandir(char* path);
 char* file_get_contents(char* path);
 int file_put_contents(char* path, char* contents);
+int filesize(char* filename);
 
 
 #ifdef __cplusplus

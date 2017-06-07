@@ -16,15 +16,34 @@
 char* file_get_contents(char* path) {
     
    FILE *fp;
-   char buff[255];
+   char* buff;
+   int fsize = filesize(path);
+   
+   buff = malloc(fsize + 1);
+   
+   if (buff == NULL) return -1;
    
    fp = fopen(path, "r");
-   fgets(buff, 255, fp);
+   fgets(buff, fsize, fp);
    
    fclose(fp);
    
+   //printf("%s", buff);
+   
    return buff;
 
+}
+
+int filesize(char* filename) {
+
+   int size = 0;
+   
+   struct stat st;
+   stat(filename, &st);
+   size = st.st_size;
+
+   return size;
+   
 }
 
 int file_put_contents(char* path, char* contents) {
