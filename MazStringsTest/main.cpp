@@ -22,11 +22,20 @@
  */
 int main(int argc, char** argv) {
     
-    char* straux;
+    //char* straux;
+    //straux = concat_strings(3, "str1rr", "str2", "str3g");
+    //printf("%s", straux);
     
-    straux = concat_strings(3, "str1rr", "str2", "str3g");
-    
-    printf("%s", straux);
+    char** straux;
+    int arrlen, i;
+    char strexplode[] = "Aquesta es string a partir";
+    straux = explode(' ', strexplode);
+    /*arrlen = array_strings_size(straux);
+    //printf("%s", straux);
+     */
+    for (i = 0; i < arrlen; i++) {
+      printf("%s", straux[i]);
+    }
     
     return 0;
 }

@@ -19,6 +19,8 @@ extern "C" {
 #endif
 
 char* concat_strings(int num,...);
+char** explode(char del, char* str);
+int array_strings_size(char* array[]);
 
 
 #ifdef __cplusplus
