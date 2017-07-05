@@ -33,9 +33,9 @@ int main(int argc, char** argv) {
     /*arrlen = array_strings_size(straux);
     //printf("%s", straux);
      */
-    for (i = 0; i < arrlen; i++) {
-      printf("%s", straux[i]);
-    }
+    //for (i = 0; i < arrlen; i++) {
+    //  printf("%s", straux[i]);
+    //}
     
     return 0;
 }

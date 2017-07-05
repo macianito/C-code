@@ -58,10 +58,61 @@ char* concat_strings(int num,...) { // TODO acabar conversions tipus
 
 }
 
+char** explode(const char a_del, char* str) { // https://stackoverflow.com/questions/9210528/split-string-with-delimiters-in-c
+
+   int slen = strlen(str), i,
+       numTokens = 0; // num cadenes
+   
+   char del[2];
+   del[0] = a_del;
+   del[1] = 0;
+   
+   char lastchar = del; // ultim caracter
+   
+   for (i = 0; i < slen; i++) {
+       
+     if(str[i] == del[0] && lastchar != del[0]) {
+        ++numTokens;
+     }
+     
+     lastchar = str[i];
+       
+   }
+   
+   if(lastchar != del[0]) {
+       ++numTokens;
+   }
+   
+   //printf("%d ", numTokens);
+   
+   char** arrayStrings = (char **)malloc(sizeof(char*) * numTokens);
+   
+   i = 0;
+   
+   if (arrayStrings) {
+       
+       char* token = strtok(str, del);
+       
+       while( token != NULL ) {
+         printf( " %s\n", token );
+         token = strtok(0, del);
+         
+         arrayStrings[i++] = strdup(token);
+         
+       }
+
+//         arrayStrings[numTokens] = (char *)malloc(strlen(buff) + 1);
+//         strcpy(arrayStrings[numTokens], buff);
+   
+   }
+   
+   return arrayStrings;
+    
+}
 
 // http://www.cplusplus.com/reference/cstring/strtok/
 // https://stackoverflow.com/questions/7652293/how-do-i-dynamically-allocate-an-array-of-strings-in-c
-char** explode(char del, char* str) { 
+/* char** explode(char del, char* str) { 
     
     int slen = strlen(str), i, j,
         numTokens = 0; // inicialment 1 token
@@ -77,11 +128,15 @@ char** explode(char del, char* str) {
          
          buff[j] = '\0';
          
+         if(strlen(buff) == 0) { // dos delimitadors contigus
+           continue;
+         }
+         
          arrayStrings[numTokens] = (char *)malloc(strlen(buff) + 1);
          
          strcpy(arrayStrings[numTokens], buff);
          
-         //printf("%s", arrayStrings[numTokens]);
+         printf("%s ", arrayStrings[numTokens]);
          
          if(i != slen-1) { // no es l'ultim o sigui afegim nova cadena
            ++numTokens;
@@ -106,7 +161,7 @@ char** explode(char del, char* str) {
           
           strcpy(arrayStrings[numTokens], buff);
         
-          //printf("%s", arrayStrings[numTokens]);
+          printf("%s ", arrayStrings[numTokens]);
           
         }
         
@@ -118,7 +173,7 @@ char** explode(char del, char* str) {
     
     return arrayStrings;
     
-}
+} */
 
 // retorna mida d'un array d'strings
 int array_strings_size(char** array) {
